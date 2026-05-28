@@ -20,4 +20,17 @@ cd backend && ./mvnw spring-boot:run
 
 The API will be available at `http://localhost:8090`.
 
+The endpoint supports two optional query params:
+
+http://localhost:8090/api/products — all products
+http://localhost:8090/api/products?search=samsung&category=tablets - get products by search and category
+
 ### 2. Start the frontend
+
+## Execute tests
+
+### 1. Backend Tests
+
+```bash
+cd backend && ./mvnw test
+```

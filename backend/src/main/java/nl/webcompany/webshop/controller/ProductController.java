@@ -1,0 +1,29 @@
+package nl.webcompany.webshop.controller;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import nl.webcompany.webshop.model.Product;
+import nl.webcompany.webshop.service.ProductService;
+
+@RestController
+@RequestMapping("/api/products")
+public class ProductController {
+	private final ProductService productService;
+	
+	public ProductController(ProductService productService) {
+		this.productService = productService;
+	}
+	
+    @GetMapping
+    public ResponseEntity<List<Product>> getProducts(
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) String category) {
+        return ResponseEntity.ok(productService.getProducts(search, category));
+    }
+}
