@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  position: sticky;
+
+  height: 64px;
+
+  top: 0;
+
+  padding: 0 var(--space-6);
+
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: var(--space-3);
+}
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+}
+
+.actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: var(--space-2);
+}

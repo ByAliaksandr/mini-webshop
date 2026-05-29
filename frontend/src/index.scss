@@ -1,6 +1,15 @@
 :root {
   --color-bg: #0f0f12;
+  --color-surface: #1a1a22;
+
   --color-text: #e8e8f0;
+  --color-border: #2a2a38;
+
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
 }
 
 *,
@@ -12,10 +21,13 @@
 }
 
 body {
+  min-height: 100vh;
+
   background: var(--color-bg);
   color: var(--color-text);
+
+  font-family: Roboto, sans-serif;
   line-height: 1.5;
-  min-height: 100vh;
 }
 
 img {
