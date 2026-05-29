@@ -27,6 +27,10 @@ http://localhost:8090/api/products?search=samsung&category=tablets - get product
 
 ### 2. Start the frontend
 
+```bash
+cd frontend && npm run dev
+```
+
 ## Execute tests
 
 ### 1. Backend Tests
