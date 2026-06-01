@@ -8,7 +8,12 @@
   --color-border: #2a2a38;
 
   --color-accent: #6c63ff;
+  --color-accent-hover: #7d75ff;
 
+  --color-success: #22c55e;
+  --color-error: #ef4444;
+
+  --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
   --space-4: 16px;
@@ -45,4 +50,16 @@ img {
 
 ul {
   list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 }
