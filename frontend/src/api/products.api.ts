@@ -20,3 +20,9 @@ export const fetchProducts = async (
   if (!res.ok) throw new Error(`Failed to fetch products: ${res.status}`);
   return res.json() as Promise<Product[]>;
 };
+
+export const fetchCategories = async (signal?: AbortSignal): Promise<string[]> => {
+  const res = await fetch(`${BASE}/categories`, { signal });
+  if (!res.ok) throw new Error(`Failed to fetch categories: ${res.status}`);
+  return res.json() as Promise<string[]>;
+};

@@ -1,16 +1,15 @@
-import { useState } from 'react';
 import { Header } from '../common/components/Header';
 import { ProductGrid } from './components/ProductGrid/ProductGrid';
 import { SearchFilter } from './components/SearchFilter';
 import styles from './ShopPage.module.scss';
 import { useProducts } from './hooks/useProducts';
+import { useCategories } from './hooks/useCategories';
 
 export const ShopPage = () => {
   const { products, loading, error, search, setSearch, selectedCategory, setSelectedCategory } =
     useProducts();
-  // TODO: temporary usage
-  const [categories] = useState<string[]>(['Audio', 'Laptops', 'Samsung']);
-  // TODO: temporary usage end
+
+  const { categories } = useCategories();
 
   return (
     <div className={styles.page}>
