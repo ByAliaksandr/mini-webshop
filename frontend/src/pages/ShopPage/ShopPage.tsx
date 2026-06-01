@@ -4,8 +4,12 @@ import { SearchFilter } from './components/SearchFilter';
 import styles from './ShopPage.module.scss';
 import { useProducts } from './hooks/useProducts';
 import { useCategories } from './hooks/useCategories';
+import { BasketButton } from './components/Basket/BasketButton';
+import { useState } from 'react';
 
 export const ShopPage = () => {
+  const [basketOpen, setBasketOpen] = useState(false);
+
   const { products, loading, error, search, setSearch, selectedCategory, setSelectedCategory } =
     useProducts();
 
@@ -13,7 +17,7 @@ export const ShopPage = () => {
 
   return (
     <div className={styles.page}>
-      <Header rightSlot={<div>Basket</div>}></Header>
+      <Header rightSlot={<BasketButton onClick={() => setBasketOpen((val) => !val)} />}></Header>
 
       <main className={styles.main}>
         <SearchFilter
