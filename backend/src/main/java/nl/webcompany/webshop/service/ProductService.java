@@ -38,6 +38,10 @@ public class ProductService {
 				.filter(product -> matchesCategory(product, normalizedCategory)).toList();
 	}
 
+	public List<String> getCategories() {
+		return products.stream().map(Product::category).distinct().sorted().toList();
+	}
+
 	private boolean matchesSearch(Product product, String search) {
 		return search.isBlank() || product.name().toLowerCase().contains(search)
 				|| product.brand().toLowerCase().contains(search);

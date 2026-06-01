@@ -15,15 +15,20 @@ import nl.webcompany.webshop.service.ProductService;
 @RequestMapping("/api/products")
 public class ProductController {
 	private final ProductService productService;
-	
+
 	public ProductController(ProductService productService) {
 		this.productService = productService;
 	}
-	
-    @GetMapping
-    public ResponseEntity<List<Product>> getProducts(
-            @RequestParam(required = false) String search,
-            @RequestParam(required = false) String category) {
-        return ResponseEntity.ok(productService.getProducts(search, category));
-    }
+
+	@GetMapping
+	public ResponseEntity<List<Product>> getProducts(@RequestParam(required = false) String search,
+			@RequestParam(required = false) String category) {
+		return ResponseEntity.ok(productService.getProducts(search, category));
+	}
+
+	@GetMapping("/categories")
+	public ResponseEntity<List<String>> getCategories() {
+		return ResponseEntity.ok(productService.getCategories());
+	}
+
 }
