@@ -34,5 +34,11 @@ export const useAbortableAction = <T>({ initialLoading = false } = {}) => {
     []
   );
 
-  return { loading, error, run };
+  const reset = useCallback(() => {
+    abortControllerRef.current?.abort();
+    setLoading(false);
+    setError(null);
+  }, []);
+
+  return { loading, error, run, reset };
 };

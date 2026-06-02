@@ -57,7 +57,6 @@ $panel-width: 400px;
 
   padding: var(--space-2);
 
-  background: var(--color-surface-hover);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   color: var(--color-text);
@@ -78,10 +77,67 @@ $panel-width: 400px;
   overflow-y: auto;
 }
 
+%banner {
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.success {
+  @extend %banner;
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+}
+
+.error {
+  @extend %banner;
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+}
+
 .empty {
   color: var(--color-text-muted);
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .list {
   padding: var(--space-2) 0;
+}
+
+.footer {
+  padding: var(--space-6);
+
+  border-top: 1px solid var(--color-border);
+}
+
+.total {
+  display: flex;
+
+  margin-bottom: var(--space-4);
+
+  justify-content: space-between;
+
+  color: var(--color-text-muted);
+}
+
+.totalPrice {
+  color: var(--color-price);
+}
+
+.purchaseButton {
+  width: 100%;
+
+  padding: var(--space-3);
+
+  border-radius: var(--radius-sm);
+
+  background: var(--color-accent);
+  color: var(--color-text);
+
+  &:hover:not(:disabled) {
+    background: var(--color-accent-hover);
+  }
 }

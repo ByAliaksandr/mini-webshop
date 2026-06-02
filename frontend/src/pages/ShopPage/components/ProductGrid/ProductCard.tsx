@@ -30,7 +30,7 @@ export const ProductCard = ({ product }: Props) => {
           </div>
 
           <button
-            className={styles.addBtn}
+            className={styles.addButton}
             onClick={() => addToBasket(product)}
             disabled={product.stock <= 0}
           >
