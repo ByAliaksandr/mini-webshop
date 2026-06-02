@@ -21,7 +21,12 @@ export const Basket = ({ open, onClose }: Props) => {
     <>
       {open && <div className={styles.overlay} onClick={handleClose} aria-hidden="true" />}
 
-      <aside className={`${styles.panel} ${open ? styles.open : ''}`} aria-label="Shopping basket">
+      <aside
+        className={`${styles.panel} ${open ? styles.open : ''}`}
+        aria-label="Shopping basket"
+        aria-hidden={!open}
+        inert={!open}
+      >
         <div className={styles.panelHeader}>
           <h2 className={styles.panelTitle}>
             Basket <span className={styles.count}>({totalItems})</span>
