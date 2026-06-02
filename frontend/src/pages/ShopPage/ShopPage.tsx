@@ -6,6 +6,8 @@ import { useProducts } from './hooks/useProducts';
 import { useCategories } from './hooks/useCategories';
 import { BasketButton } from './components/Basket/BasketButton';
 import { useState } from 'react';
+import { Basket } from './components/Basket/Basket';
+import { BasketProvider } from './context/BasketProvider';
 
 export const ShopPage = () => {
   const [basketOpen, setBasketOpen] = useState(false);
@@ -16,20 +18,24 @@ export const ShopPage = () => {
   const { categories } = useCategories();
 
   return (
-    <div className={styles.page}>
-      <Header rightSlot={<BasketButton onClick={() => setBasketOpen((val) => !val)} />}></Header>
+    <BasketProvider>
+      <div className={styles.page}>
+        <Header rightSlot={<BasketButton onClick={() => setBasketOpen((val) => !val)} />}></Header>
 
-      <main className={styles.main}>
-        <SearchFilter
-          search={search}
-          onSearchChange={setSearch}
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
-        />
+        <main className={styles.main}>
+          <SearchFilter
+            search={search}
+            onSearchChange={setSearch}
+            categories={categories}
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+          />
 
-        <ProductGrid products={products} loading={loading} error={error}></ProductGrid>
-      </main>
-    </div>
+          <ProductGrid products={products} loading={loading} error={error}></ProductGrid>
+        </main>
+
+        <Basket open={basketOpen} onClose={() => setBasketOpen(false)}></Basket>
+      </div>
+    </BasketProvider>
   );
 };

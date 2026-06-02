@@ -1,4 +1,5 @@
 import type { Product } from '../../../../interfaces/product.interfaces';
+import { useBasket } from '../../hooks/useBasket';
 import styles from './ProductCard.module.scss';
 
 type Props = {
@@ -6,6 +7,8 @@ type Props = {
 };
 
 export const ProductCard = ({ product }: Props) => {
+  const { addToBasket } = useBasket();
+
   return (
     <article className={styles.card}>
       <div className={styles.imageWrapper}>
@@ -26,7 +29,11 @@ export const ProductCard = ({ product }: Props) => {
             </span>
           </div>
 
-          <button className={styles.addBtn} disabled={product.stock <= 0}>
+          <button
+            className={styles.addBtn}
+            onClick={() => addToBasket(product)}
+            disabled={product.stock <= 0}
+          >
             Add to basket
           </button>
         </div>

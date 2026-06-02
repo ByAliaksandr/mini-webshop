@@ -1,3 +1,4 @@
+import { useBasket } from '../../hooks/useBasket';
 import styles from './BasketButton.module.scss';
 
 type Props = {
@@ -5,8 +6,7 @@ type Props = {
 };
 
 export const BasketButton = ({ onClick }: Props) => {
-  // TODO update
-  const totalItems = 12;
+  const { totalItems } = useBasket();
 
   return (
     <button
