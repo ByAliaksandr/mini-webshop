@@ -1,4 +1,4 @@
-import { Dropdown } from '../../common/components/Dropdown';
+import { Dropdown } from '../../../components/Dropdown';
 import styles from './SearchFilter.module.scss';
 
 type Props = {

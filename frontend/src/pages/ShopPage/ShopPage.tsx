@@ -1,4 +1,4 @@
-import { Header } from '../common/components/Header';
+import { Header } from '../../components/Header';
 import { ProductGrid } from './components/ProductGrid/ProductGrid';
 import { SearchFilter } from './components/SearchFilter';
 import styles from './ShopPage.module.scss';
