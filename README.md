@@ -26,8 +26,26 @@ This project follows the instructions and implementation requirements described 
 
 ```
 mini-webshop/
-|-- backend/    # Spring Boot REST API (Java 21)
-|-- frontend/   # React 19 SPA (TypeScript, Vite)
+├── backend/                        # Spring Boot REST API (Java 21)
+│   └── src/main/java/nl/webcompany/webshop/
+│       ├── config/                 # CORS configuration (WebConfig)
+│       ├── controller/             # REST controllers
+│       ├── model/                  # Domain models
+│       │   └── dto/                # DTOs
+│       ├── service/                # Business logic
+│       └── WebshopApplication.java
+└── frontend/                       # React 19 SPA (TypeScript, Vite)
+    └── src/
+        ├── api/                    # Fetch wrappers
+        ├── components/             # Shared UI components
+        ├── hooks/                  # Shared hooks (useDebounce, useAbortableAsync)
+        ├── interfaces/             # TypeScript interfaces
+        ├── storage/                # localStorage helpers
+        └── pages/
+            └── ShopPage/           # Page folder
+                ├── components/     # Page-specific components
+                ├── context/        # Basket state
+                └── hooks/          # Page-specific hooks
 ```
 
 **Backend** - stateless Spring Boot service. Products are loaded from an in-memory `products.json` at startup. Filtering and search run in the service layer. Purchases are validated (very minimally) and logged. They are not persisted.
