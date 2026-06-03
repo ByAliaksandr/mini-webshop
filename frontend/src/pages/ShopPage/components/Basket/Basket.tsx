@@ -24,7 +24,6 @@ export const Basket = ({ open, onClose }: Props) => {
       <aside
         className={`${styles.panel} ${open ? styles.open : ''}`}
         aria-label="Shopping basket"
-        aria-hidden={!open}
         inert={!open}
       >
         <div className={styles.panelHeader}>
