@@ -38,3 +38,8 @@ cd frontend && npm run dev
 ```bash
 cd backend && ./mvnw test
 ```
+
+### 2. Frontend Tests
+```bash
+cd frontend && npm test
+```
