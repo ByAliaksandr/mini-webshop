@@ -6,8 +6,13 @@ type Props = {
   product: Product;
 };
 
+// Performance optimization: prevent re-rendering all cards when any basket entry changes.
 export const ProductCard = ({ product }: Props) => {
-  const { addToBasket } = useBasket();
+  const { addToBasket, entries } = useBasket();
+
+  const basketEntry = entries.find((entry) => entry.product.id === product.id);
+  const basketQuantity = basketEntry?.quantity ?? 0;
+  const isLimitReached = product.stock <= 0 || basketQuantity >= product.stock;
 
   return (
     <article className={styles.card}>
@@ -32,7 +37,7 @@ export const ProductCard = ({ product }: Props) => {
           <button
             className={styles.addButton}
             onClick={() => addToBasket(product)}
-            disabled={product.stock <= 0}
+            disabled={isLimitReached}
           >
             Add to basket
           </button>
