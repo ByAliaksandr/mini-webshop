@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type { Product } from '../../../../interfaces/product.interfaces';
 import { ProductCard } from './ProductCard';
 import styles from './ProductGrid.module.scss';
@@ -8,7 +9,7 @@ type Props = {
   error: string | null;
 };
 
-export const ProductGrid = ({ products, loading, error }: Props) => {
+export const ProductGrid = memo(({ products, loading, error }: Props) => {
   if (loading) {
     return (
       <div className={styles.grid}>
@@ -42,4 +43,4 @@ export const ProductGrid = ({ products, loading, error }: Props) => {
       ))}
     </div>
   );
-};
+});
