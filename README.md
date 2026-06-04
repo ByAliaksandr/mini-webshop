@@ -32,8 +32,7 @@ mini-webshop/
 │       ├── controller/             # REST controllers
 │       ├── model/                  # Domain models
 │       │   └── dto/                # DTOs
-│       ├── service/                # Business logic
-│       └── WebshopApplication.java
+│       └── service/                # Business logic
 └── frontend/                       # React 19 SPA (TypeScript, Vite)
     └── src/
         ├── api/                    # Fetch wrappers
@@ -102,10 +101,17 @@ cd frontend && npm test
 ## Trade-offs and shortcuts
 
 - **No purchase persistence** — purchases are only logged. There is no extensive purchase item validation and no database.
-- **ProductCard rendering** - performance could be improved further. See `ProdctCard.tsx`
+- **ProductCard rendering** - performance could be improved further. See `ProductCard.tsx`
 - **Limited test coverage** - backend service/controller tests, Jest unit test for `basketReducer.ts` and component test for `ProductCard.tsx`. There are no end-to-end tests with Playwright or Cypress.
 
 
 ## Challenges
 
-Technically and architecturally, the task doesn't demand more than a typical Java/Spring Boot application with React. At the same time, it has a broad scope, covering architecture, backend APIs, frontend state management, responsive UI, testing, and more. As a result, it requires significantly more implementation effort than problem-solving.
+- **Broad scope** - the task has a broad scope: covering architecture, backend APIs, frontend state management, responsive UI, testing, and more.
+
+- **React Context re-rendering** - opening and closing the basket originally caused unnecessary re-rendering. Check commit `perf(frontend): prevent re-renders on basket open/close (62187a0)`
+
+- **ProductCard rendering** - all cards are re-rendered when any basket entry changes. This could be optimized, but the current approach keeps the state model simple and readable.
+
+
+
