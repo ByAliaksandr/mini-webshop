@@ -1,4 +1,4 @@
-package nl.webcompany.webshop.model;
+package nl.webcompany.webshop.product;
 
 public record Product(
         int id,

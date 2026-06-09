@@ -1,4 +1,4 @@
-package nl.webcompany.webshop.model.dto;
+package nl.webcompany.webshop.purchase.dto;
 
 import jakarta.validation.constraints.Positive;
 

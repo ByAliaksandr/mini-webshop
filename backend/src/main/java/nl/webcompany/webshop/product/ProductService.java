@@ -1,4 +1,4 @@
-package nl.webcompany.webshop.service;
+package nl.webcompany.webshop.product;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import nl.webcompany.webshop.model.Product;
 
 @Service
 public class ProductService {

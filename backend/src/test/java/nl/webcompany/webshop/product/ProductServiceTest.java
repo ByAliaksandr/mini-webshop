@@ -1,4 +1,4 @@
-package nl.webcompany.webshop.service;
+package nl.webcompany.webshop.product;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,7 +22,7 @@ public class ProductServiceTest {
 	void getAllProducts() {
 		assertThat(service.getProducts(null, null)).hasSize(32);
 	}
-	
+
 	@Test
 	void filterBySearch_WhitespaceOnly() {
 		assertThat(service.getProducts("   ", null)).hasSize(32);
@@ -51,7 +51,7 @@ public class ProductServiceTest {
 		assertThat(service.getProducts("samsung", "tablets")).hasSize(1);
 		assertThat(service.getProducts("Samsung", "Tablets")).hasSize(1);
 	}
-	
+
 	@Test
 	void filterBySearch_NoMatch() {
 		assertThat(service.getProducts("XXXXXXXXXXXXX", null)).isEmpty();

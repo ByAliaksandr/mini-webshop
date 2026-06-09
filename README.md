@@ -29,10 +29,9 @@ mini-webshop/
 ├── backend/                        # Spring Boot REST API (Java 21)
 │   └── src/main/java/nl/webcompany/webshop/
 │       ├── config/                 # CORS configuration (WebConfig)
-│       ├── controller/             # REST controllers
-│       ├── model/                  # Domain models
-│       │   └── dto/                # DTOs
-│       └── service/                # Business logic
+│       ├── product/                # Product domain (controller, service, model)
+│       └── purchase/               # Purchase domain (controller, DTOs)
+│           └── dto/                # PurchaseRequestDto, PurchaseItemDto
 └── frontend/                       # React 19 SPA (TypeScript, Vite)
     └── src/
         ├── api/                    # Fetch wrappers

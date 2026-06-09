@@ -1,4 +1,4 @@
-package nl.webcompany.webshop.controller;
+package nl.webcompany.webshop.purchase;
 
 import java.util.stream.Collectors;
 
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
-import nl.webcompany.webshop.model.dto.PurchaseRequestDto;
+import nl.webcompany.webshop.purchase.dto.PurchaseRequestDto;
 
 @RestController
 @RequestMapping("/api/purchases")
