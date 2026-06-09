@@ -109,7 +109,7 @@ cd frontend && npm test
 
 - **React Context re-rendering** - opening and closing the basket originally caused unnecessary re-rendering. Check commit `perf(frontend): prevent re-renders on basket open/close (62187a0)`
 
-- **ProductCard rendering** - all cards are re-rendered when any basket entry changes. This could be optimized, but the current approach keeps the state model simple and readable.
+- **ProductCard rendering** - all cards were re-rendered when any basket entry changed. Check commit `perf(frontend): prevent all cards from re-rendering when any basket entry changes (21b4527)`
 
 
 
