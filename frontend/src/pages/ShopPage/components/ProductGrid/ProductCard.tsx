@@ -1,17 +1,14 @@
+import { memo } from 'react';
 import type { Product } from '../../../../interfaces/product.interfaces';
-import { useBasket } from '../../hooks/useBasket';
 import styles from './ProductCard.module.scss';
 
 type Props = {
   product: Product;
+  basketQuantity: number;
+  addToBasket: (product: Product) => void;
 };
 
-// Performance optimization: prevent re-rendering all cards when any basket entry changes.
-export const ProductCard = ({ product }: Props) => {
-  const { addToBasket, entries } = useBasket();
-
-  const basketEntry = entries.find((entry) => entry.product.id === product.id);
-  const basketQuantity = basketEntry?.quantity ?? 0;
+export const ProductCard = memo(({ product, basketQuantity, addToBasket }: Props) => {
   const isLimitReached = product.stock <= 0 || basketQuantity >= product.stock;
 
   return (
@@ -45,4 +42,4 @@ export const ProductCard = ({ product }: Props) => {
       </div>
     </article>
   );
-};
+});

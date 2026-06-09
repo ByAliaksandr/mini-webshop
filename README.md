@@ -100,7 +100,6 @@ cd frontend && npm test
 ## Trade-offs and shortcuts
 
 - **No purchase persistence** — purchases are only logged. There is no extensive purchase item validation and no database.
-- **ProductCard rendering** - performance could be improved further. See `ProductCard.tsx`
 - **Limited test coverage** - backend service/controller tests, Jest unit test for `basketReducer.ts` and component test for `ProductCard.tsx`. There are no end-to-end tests with Playwright or Cypress.
 
 

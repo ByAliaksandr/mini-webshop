@@ -2,6 +2,7 @@ import { memo } from 'react';
 import type { Product } from '../../../../interfaces/product.interfaces';
 import { ProductCard } from './ProductCard';
 import styles from './ProductGrid.module.scss';
+import { useBasket } from '../../hooks/useBasket';
 
 type Props = {
   products: Product[];
@@ -10,6 +11,8 @@ type Props = {
 };
 
 export const ProductGrid = memo(({ products, loading, error }: Props) => {
+  const { addToBasket, entries } = useBasket();
+
   if (loading) {
     return (
       <div className={styles.grid}>
@@ -39,7 +42,12 @@ export const ProductGrid = memo(({ products, loading, error }: Props) => {
   return (
     <div className={styles.grid}>
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard
+          key={product.id}
+          product={product}
+          basketQuantity={entries.find((entry) => entry.product.id === product.id)?.quantity ?? 0}
+          addToBasket={addToBasket}
+        />
       ))}
     </div>
   );
