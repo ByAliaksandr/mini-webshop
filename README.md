@@ -5,7 +5,7 @@
 Mini Webshop is a small fullstack webshop application with a React frontend and a Spring Boot Java backend exposing a REST API.
 This project follows the instructions and implementation requirements described in `TASK.md`.
 
-## Task Breakdown and Secondary Criteria (Bonus)
+## Task Breakdown, Primary Criteria and Secondary Criteria
 
 ### Task Breakdown
 
@@ -14,13 +14,21 @@ This project follows the instructions and implementation requirements described 
 3. ✅ Implement a shopping basket that allows users to add and remove products.
 4. ✅ Implement the ability to purchase the items in your basket, this should be done by submitting the purchase to the backend (Logging a line for the purchase in the backend is sufficient).
 
+### Primary Criteria
+
+- ✅ **Clean and structured code** — modular, readable, and following modern best practices.
+- ✅ **REST API design** — well-thought-out endpoint structure with correct HTTP semantics.
+- ✅ **React component architecture** — logical separation of concerns.
+- ✅ **TypeScript** — use types throughout the frontend codebase.
+- ✅ **Basket persistence** — basket contents survive a page reload.
+
 ### Secondary Criteria (Bonus)
 
-1. ✅ **Search or filter** — filter the product list by name or category (filtering logic on the backend).
-2. ✅ **Responsive design** — the webshop works well on both desktop and mobile.
-3. ✅ **Advanced CSS** — Flexbox, Grid, CSS variables, or a preprocessor like Sass.
-4. ✅ **Error handling** — graceful handling of API errors on the frontend.
-5. ✅ **Testing** — unit or integration tests on either the backend (JUnit) or frontend (Jest / React Testing Library).
+- ✅ **Search or filter** — filter the product list by name or category (filtering logic on the backend).
+- ✅ **Responsive design** — the webshop works well on both desktop and mobile.
+- ✅ **Advanced CSS** — Flexbox, Grid, CSS variables, or a preprocessor like Sass.
+- ✅ **Error handling** — graceful handling of API errors on the frontend.
+- ✅ **Testing** — unit or integration tests on either the backend (JUnit) or frontend (Jest / React Testing Library).
 
 ## Architecture
 
@@ -109,7 +117,7 @@ cd frontend && npm test
 
 - **React Context re-rendering** - opening and closing the basket originally caused unnecessary re-rendering. Check commit `perf(frontend): prevent re-renders on basket open/close (62187a0)`
 
-- **ProductCard rendering** - all cards were re-rendered when any basket entry changed. Check commit `perf(frontend): prevent all cards from re-rendering when any basket entry changes (21b4527)`
+- **ProductCard re-rendering** - all cards were re-rendered when any basket entry changed. Check commit `perf(frontend): prevent all cards from re-rendering when any basket entry changes (21b4527)`
 
 
 
