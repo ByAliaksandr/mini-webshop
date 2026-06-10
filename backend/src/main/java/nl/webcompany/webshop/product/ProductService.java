@@ -29,8 +29,8 @@ public class ProductService {
 	}
 
 	public List<Product> getProducts(String search, String category) {
-		String normalizedSearch = search == null ? "" : search.trim().toLowerCase();
-		String normalizedCategory = category == null ? "" : category.trim().toLowerCase();
+		String normalizedSearch = normalize(search);
+		String normalizedCategory = normalize(category);
 
 		return products.stream().filter(product -> matchesSearch(product, normalizedSearch))
 				.filter(product -> matchesCategory(product, normalizedCategory)).toList();
@@ -38,6 +38,10 @@ public class ProductService {
 
 	public List<String> getCategories() {
 		return products.stream().map(Product::category).distinct().sorted().toList();
+	}
+
+	private String normalize(String value) {
+		return value == null ? "" : value.trim().toLowerCase();
 	}
 
 	private boolean matchesSearch(Product product, String search) {
